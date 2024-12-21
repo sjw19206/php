@@ -34,7 +34,7 @@ echo '</br>';
 
 // createProjectDir('log');
 $message = 'test message new'."\n";
-createFile('testLog.log', $message, getProjectDir());
+
 
 createFile('testLog.log', $message, getProjectDir() . DIRECTORY_SEPARATOR . AppConstants::getPropertiesDir());
 

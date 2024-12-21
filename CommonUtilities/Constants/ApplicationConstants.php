@@ -1,19 +1,20 @@
 <?php
-namespace TestComposerFunctions\Constants;
+namespace CommonUtilities\Constants\ApplicationConstants;
 
-class AppConstants
+use function CommonUtilities\File\FileUtilities\loadProperties;
+
+class ApplicationConstants
 {
 
     private const PROPERTIES_DIR = "properties";
 
     private const UTILITY_INI_FILE = "utilities.ini";
 
-    private static $constants = [
+    private const LOG_DIR = "Logs";
 
-        'CONST_ONE' => 4536562,
-        'CONST_TWO' => 'Humming'
+    private const LOG_FILE = "log.log";
 
-    ];
+    private static $constants = array();
 
     public static function getPropertiesDir()
     {
@@ -33,6 +34,11 @@ class AppConstants
     public static function setConstant(string $propName, string | int | bool | array | float $propValue)
     {
         self::$constants[$propName] = $propValue;
+    }
+
+    private static function loadConstants()
+    {
+        self::$constants = loadProperties(getProjectDir() . DIRECTORY_SEPARATOR . self::getPropertiesDir() . DIRECTORY_SEPARATOR . self::getUtilityIniFile());
     }
 }
 

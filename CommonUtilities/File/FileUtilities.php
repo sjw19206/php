@@ -1,5 +1,5 @@
 <?php
-namespace TestComposerFunctions\File\FileUtils;
+namespace CommonUtilities\File\FileUtilities;
 
 use Exception;
 
